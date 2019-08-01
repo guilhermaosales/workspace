@@ -1,28 +1,14 @@
-const usuarios = [
-    {nome: "Robinson", idade: 18},
-    {nome: "William", idade: 28},
-    {nome: "Janaina", idade: 19},
-    {nome: "Carla", idade: 25},
-    {nome: "Maíra", idade: 32},
-    {nome: "George", idade: 30},
-    {nome: "Camila", idade: 27},
-    {nome: "Carlinhos", idade: 22},
-    {nome: "Jamilso", idade: 29},
-    {nome: "Claudio", idade: 30},
-];
-    
-let minhaTabela = document.querySelector('#corpoDaTabela');
+let mapDaFelicidadeOnline = new Map([
+    ['iti malias', 'https://twitter.com/_iti_malia'],
+    ['Eu amo os animais','https://twitter.com/_IloveAnimais_'],
+    ['bichos triste fofo','https://twitter.com/BichosTriste']
+]);
 
-let quantidadeDeUsuarios = usuarios.reverse().length;
+function imprimeContas(conta){
+    console.log(conta);
+}
 
-while(quantidadeDeUsuarios) {
-    const indice = quantidadeDeUsuarios - 1;
-    minhaTabela.insertAdjacentHTML('beforeend',`
-    <tr>
-        <td>${usuarios[indice].nome}</td>
-        <td>${usuarios[indice].idade}</td>
-    </tr>
-`);
-
-    quantidadeDeUsuarios--;
+for (let item of mapDaFelicidadeOnline.entries()){
+    imprimeContas(item[0]);
+    imprimeContas(item[1]);
 }

@@ -4,11 +4,31 @@ let mapDaFelicidadeOnline = new Map([
     ['bichos triste fofo','https://twitter.com/BichosTriste']
 ]);
 
-function imprimeContas(conta){
-    console.log(conta);
+function transformaListaEmFrases(listaDeLinks){
+    const podemosExecutarATransformacao = typeof listaDeLinks === 'object';
+
+    if(podemosExecutarATransformacao){
+        let frases = [];
+
+        for (let item of listaDeLinks.entries()){
+            const [usuario, link] = item;
+        
+            frases.push(`Nome de usuário: ${usuario}, Link: ${link}`);
+        }
+        return frases;
+
+    } else {
+        console.log('Por favor, passe um Map como parâmetro da função');
+    }
 }
 
-for (let item of mapDaFelicidadeOnline.entries()){
-    imprimeContas(item[0]);
-    imprimeContas(item[1]);
-}
+function imprimeContas(funcaoTransformadora, listaDeLinks){
+    return funcaoTransformadora(listaDeLinks);
+};
+
+const listaDeFrases = imprimeContas(transformaListaEmFrases, mapDaFelicidadeOnline);
+
+console.log(listaDeFrases);
+
+
+
